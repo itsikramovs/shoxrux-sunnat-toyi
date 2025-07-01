@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shoxruxning Sunnat To‘yi</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #fffaf5;
+      color: #2e2e2e;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      color: #d1573f;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      text-align: center;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+
+    .map-frame {
+      margin: 30px auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      border: 0;
+      border-radius: 12px;
+    }
+
+    .countdown {
+      text-align: center;
+      margin: 30px auto 0;
+    }
+
+    .countdown h2 {
+      font-size: 1.5em;
+      color: #aa3e27;
+      margin-bottom: 10px;
+    }
+
+    .timer {
+      font-size: 1.3em;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 40px;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      p, .timer {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Shoxruxning sunnat to‘yi</h1>
+  </header>
+
+  <p>
+    Yaqin insonlar davrasida quvonchimizni bo'lishish niyatidamiz.<br><br>
+    Sizni aziz farzandimiz <strong>Shoxruxning sunnat to‘yi</strong> munosabati bilan tashkil etiladigan samimiy dasturxonimizga mehmon bo‘lishingizni chin dildan istaymiz.
+  </p>
+
+ <div class="map-frame">
+  <iframe 
+    src="https://yandex.uz/map-widget/v1/-/CHsIAFPL" 
+    width="100%" 
+    height="300" 
+    frameborder="0" 
+    style="border:0; border-radius:12px;" 
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+  <div class="countdown">
+    <h2>Dasturxonimizgacha qolgan vaqt:</h2>
+    <div class="timer" id="countdown">Hisoblanmoqda...</div>
+  </div>
+
+  <footer>
+    Hurmat bilan, Mubarakovlar oilasi
+  </footer>
+
+  <script>
+    const eventDate = new Date("2025-08-23T18:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance <= 0) {
+        document.getElementById("countdown").innerText = "Tadbir boshlandi!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerText =
+        `${days} kun, ${hours} soat, ${minutes} daqiqa, ${seconds} soniya`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
