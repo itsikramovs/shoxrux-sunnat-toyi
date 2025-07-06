@@ -59,6 +59,24 @@
       border-radius: 50%;
       z-index: 0;
     }
+    .confetti {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 2;
+      background-image: url('https://pngimg.com/uploads/confetti/confetti_PNG86987.png');
+      background-repeat: repeat;
+      background-size: 400px;
+      opacity: 0.3;
+      animation: confettiMove 60s linear infinite;
+    }
+    @keyframes confettiMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 2000px; }
+    }
     .section {
       padding: 40px 20px;
       display: flex;
@@ -67,7 +85,7 @@
       justify-content: center;
       text-align: center;
       position: relative;
-      z-index: 1;
+      z-index: 3;
     }
     .section h2 {
       font-size: 40px;
@@ -84,18 +102,29 @@
       margin-bottom: 20px;
     }
     .countdown {
-      font-size: 1.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 2rem;
       font-weight: bold;
+      color: #fffae3;
+      background-color: rgba(0,0,0,0.2);
+      padding: 15px 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      display: inline-block;
     }
     @media (max-width: 768px) {
       .section {
-        padding: 15px 15px;
+        padding: 10px 15px;
       }
       .section h2 {
-        font-size: 48px;
+        font-size: 42px;
       }
       .section p {
         font-size: 38px;
+      }
+      .countdown {
+        font-size: 1.5rem;
+        padding: 10px 20px;
       }
     }
   </style>
@@ -116,6 +145,8 @@
     <div class="bubble-static" style="left: 65%; top: 80%; width: 70px; height: 70px;"></div>
     <div class="bubble-static" style="left: 40%; top: 40%; width: 90px; height: 90px;"></div>
   </div>
+  <!-- Конфетти -->
+  <div class="confetti"></div>
 
   <!-- Фоновая музыка -->
   <audio autoplay loop>
@@ -127,12 +158,12 @@
     <p>Яқин инсонлар даврасида қувончимизни бўлишиш ниятидамиз.<br>Сизни азиз фарзандимиз</p>
   </section>
 
-  <section class="section" data-aos="fade-left">
+  <section class="section" data-aos="fade-up">
     <h2>Шохрухнинг</h2>
     <p>Суннат тўйи муносабати билан ташкил этиладиган дастурхонимизга меҳмон бўлишингизни чин дилдан истаймиз</p>
   </section>
 
-  <section class="section" data-aos="zoom-in">
+  <section class="section" data-aos="fade-up">
     <h2>Тадбир вақти</h2>
     <svg width="371" height="330" viewBox="0 0 371 330" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect y="0.297852" width="371" height="329.705" rx="20" fill="black" fill-opacity="0.1"/>
@@ -189,12 +220,12 @@
     <div class="countdown" id="countdown"></div>
   </section>
 
-  <section class="section" data-aos="fade-right">
+  <section class="section" data-aos="fade-up">
     <h2>Тадбир эгалари</h2>
     <p>Мубораковлар оиласи</p>
   </section>
 
-  <section class="section" data-aos="fade-left">
+  <section class="section" data-aos="fade-up">
     <h2>Манзилимиз</h2>
     <p>Тошкент ш. Яшнобод т.<br>Чинор 4-берк 13</p>
     <a href="https://yandex.uz/maps/-/CDUOZBSV" target="_blank">
